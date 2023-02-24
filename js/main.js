@@ -1,27 +1,60 @@
 const buttonSubmit = document.querySelector('#readerForm');
 
+const messageName = document.getElementById('name');
+
+const messageKm = document.getElementById('kilometers');
+
+const messageAge = document.getElementById('ages');
+
+const yourTicketDom = document.getElementById('yourTicket')
+
+const ticketNameDom = document.getElementById('ticketName');
+
+const ticketDiscountDom = document.getElementById('ticketDiscount');
+
+const numberCoachDom = document.getElementById('numberCoach');
+
+const codeCpDom = document.getElementById('codeCP');
+
+const ticketPriceDom = document.getElementById('ticketPrice');
+
+const priceKm = 0.21;
+
 buttonSubmit.addEventListener('click', 
     
     function(){
-        const messageName = document.getElementById('name');
-        const passengerName = messageName.value;
-
-
-        const messageKm = document.getElementById('kilometers');
-        const passengerKm = messageKm.value;
-
-        console.log(passengerKm);
-
-        const messageAge = document.getElementById('ages');
-        const passengerAge = messageAge.value;
-
-        const numberCoach = Math.floor((Math.random() * 9) + 1);
-
-        alert(numberCoach);
-
-        const numberCP = Math.floor((Math.random() * 9999) + 90000);
         
-        alert(numberCP);
+        let passengerName = messageName.value;
+
+        let passengerKm = parseInt(messageKm.value);
+
+        let passengerAge = messageAge.value;
+
+        let price = passengerKm * priceKm;
+
+        if (passengerAge == "under18"){
+            price = price - (price / 100 * 20)
+            ticketDiscountDom.innerHTML = `Sconto 20% under 18`
+        } else if (passengerAge == "over65"){
+            price = price - (price / 100 * 40)
+            ticketDiscountDom.innerHTML = `Sconto 40% over 65`
+        }else {
+            ticketDiscountDom.innerHTML = `Prezzo Pieno`
+        };
+
+        let numberCoach = Math.floor((Math.random() * 9) + 1);
+
+        let numberCP = Math.floor((Math.random() * 9999) + 90000);
+
+        yourTicketDom.classList.remove('d-none');
+
+        ticketNameDom.innerHTML = passengerName; 
+
+        ticketPriceDom.innerHTML = `${price.toFixed(2)} euro`;
+
+        codeCpDom.innerHTML = numberCP;
+
+        numberCoachDom.innerHTML = numberCoach;
     }
 );
 
@@ -31,23 +64,14 @@ buttonReset.addEventListener('click',
 
     function(){
 
-        const messageName = document.getElementById('name');
+        yourTicketDom.classList.add('d-none');
+
         messageName.value = "";
+
+        messageKm.value = "";
+
+        messageAge.value = "normalPrice";
     }
 
 );
 
-
-let ticketPrice = kilometers * 0.21;
-
-let discountYoung = (ticketPrice * 20) / 100;
-
-let discountOlder = (ticketPrice * 40) / 100;
-
-let ticketYoung = ticketPrice - discountYoung;
-
-let ticketOlder = ticketPrice - discountOlder;
-
-let ticketYoungPerc = Math.round(ticketYoung * 100) / 100;
-
-let ticketOlderPerc = Math.round(ticketOlder * 100) / 100;

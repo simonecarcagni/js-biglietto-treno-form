@@ -9,38 +9,38 @@
     </head>
     <body>
         
+        
         <h1 class="white text-center">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
         <div class="container">
-            <form  class="wrap">
+            <form  class="wrap red">
 
                 <div class="d-flex space-around">
                     <div>
-                        <label for="name">Nome Cognome</label><br>
-                        <input type="text" id="name" name="name">
+                        <label class="red" for="name">Nome Cognome</label><br>
+                        <input class="box" type="text" id="name" name="name">
                     </div>
                     <div>
                         <label for="kilometers">Km da percorrere</label><br>
-                        <input type="number" id="kilometers" name="kilometers">
+                        <input class="box" type="number" id="kilometers" name="kilometers">
                     </div>
                     <div>
                         <label for="ages">Fascia di età</label><br>
-                        <select id="ages" name="agelist" form="ageform">
-                            <option value="over65">Over 65</option>
+                        <select class="box" id="ages" name="agelist" form="ageform">
                             <option value="normalPrice">Prezzo Normale</option>
+                            <option value="over65">Over 65</option>
                             <option value="under18">Under 18</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="button-form">
-                    <button id="readerForm">Genera</button>
-                    <input  type="submit" value="Gera">
-                    <input id="resetForm" type="reset" value="Annulla">
+                <div class="button-form d-flex">
+                    <div class="btn text-center" id="readerForm">Genera</div>
+                    <div class="btn text-center" id="resetForm">Annulla</div>
                 </div>
             </form>
         </div>
 
-        <div >
+        <div id="yourTicket" class="d-none" >
             <h1 class="white text-center">IL TUO BIGLIETTO</h1>
 
             <div class="container">
@@ -48,13 +48,13 @@
                 <h3>DETTAGLIO PASSEGGERI</h3>
                 <div class="border-grey d-flex">
                     <div class="ticket-name">
-                        <h3 class="text-center">NOME PASSEGGERO</h3>
+                        <h3>NOME PASSEGGERO</h3>
                         <span id="ticketName"></span>
                     </div>
                     <div class="d-flex">
                         <div class="ticket-case">
                             <h4>Offerta</h4>
-                            <span ></span>
+                            <span id="ticketDiscount"></span>
                         </div>
                         <div class="ticket-case">
                             <h4>Carrozza</h4>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="ticket-case">
                             <h4>Costo Biglietto</h4>
-                            <span id="ticket-price"></span>
+                            <span id="ticketPrice"></span>
                         </div>
                     </div>
                 </div>

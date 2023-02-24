@@ -9,6 +9,18 @@ h1{
 }
 body {
     background-color: #b91450;
+    font-family: sans-serif;
+}
+
+.btn{
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 30px;
+    margin: 0px 20px;
+}
+
+.red{
+    color: #b91450;
 }
 
 .white{
@@ -19,6 +31,12 @@ body {
     text-align: center;
 }
 
+.box{
+    margin-top: 20px;
+    border: 1px solid #b91450;
+    border-radius: 5px;
+}
+
 .wrap{
     flex-wrap: wrap;
 }
@@ -27,13 +45,18 @@ body {
     display: flex;
 }
 
+.d-none{
+    display: none;
+}
+
 .space-around{
     justify-content: space-around;
 }
 
 .button-form{
-    width: 100px;
+    width: 200px;
     margin: auto;
+    margin-top: 100px;
 }
 
 
